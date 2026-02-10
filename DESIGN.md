@@ -229,56 +229,20 @@ The specifics of where to place instrumentation calls and how to handle edge cas
 
 ---
 
-## Implementation Plan
+## Implementation Approach
 
-I'd break this into phases so we can get value early and iterate:
+I envision this work happening in three phases:
 
-### Phase 1: Control Plane Basics (Week 1-2)
+**Phase 1: Foundation**
+Start with control plane metrics (GraphQL, Auth) and chaos operator. These are the core services that are always running, so getting observability here first provides immediate value and helps validate the approach.
 
-**Week 1:**
-- Add Prometheus client library to GraphQL server
-- Implement basic request/error/duration metrics
-- Add `/metrics` endpoint to GraphQL and Auth servers
-- Test locally with Prometheus scraping
+**Phase 2: Experiment Coverage**
+Build on PR #791's work to add comprehensive experiment tracking - lifecycle states, failures, recovery, resource impact. This is where users will see the most value.
 
-**Week 2:**
-- Add authentication server metrics
-- Add operator metrics to chaos-operator
-- Set up Prometheus in development environment
-- Verify all scraping targets work correctly
+**Phase 3: User Experience**
+Create Grafana dashboards, alerting rules, and documentation. Make the metrics actually usable for the community.
 
-**Deliverable:** Control plane and operator metrics working locally
-
-### Phase 2: Experiment Instrumentation (Week 3-4)
-
-**Week 3:**
-- Coordinate with PR #791 work (review, test, potentially merge)
-- Add additional experiment metrics (state transitions, recovery, resource impact)
-- Instrument 2-3 common experiment types as proof of concept (pod-delete, network-latency, cpu-hog)
-
-**Week 4:**
-- Extend instrumentation to all experiment types
-- Add resource usage tracking during experiments
-- Test with real chaos scenarios in test cluster
-
-**Deliverable:** Comprehensive experiment metrics across all chaos types
-
-### Phase 3: Dashboards & Documentation (Week 5-6)
-
-**Week 5:**
-- Create Grafana datasource configuration (auto-provisioned)
-- Build "LitmusChaos Control Plane" dashboard
-- Build "Chaos Experiments Overview" dashboard
-- Build drill-down views for debugging
-
-**Week 6:**
-- Add alerting rules (high error rates, SLO violations, experiment failures)
-- Write comprehensive documentation on using metrics
-- Create example queries and use cases
-- Demo video showing the observability in action
-
-**Deliverable:** Production-ready observability stack with documentation
-
+The specific timeline and sequencing would be determined with my mentor based on priorities and what makes sense technically.
 ---
 
 ## Grafana Dashboards
