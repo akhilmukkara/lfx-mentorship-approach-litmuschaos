@@ -204,7 +204,7 @@ These are all things I'd need to figure out during the mentorship.
 
 **What I bring:**
 - I've actually built a Prometheus/Grafana demo, so I understand the basics
-- I'm already contributing to LitmusChaos (I have a merged PR and a few active ones)
+- I'm already contributing to LitmusChaos (I have a merged PRs and a few active ones)
 - I've set up LitmusChaos locally and poked around the codebase
 - I'm active in the community and responsive
 
@@ -230,4 +230,5 @@ I'm not going to pretend I'm an expert. I'm a first-year student who's intereste
 
 ---
 
-*I'm planning to update this based on feedback from the community and my dad (who founded LitmusChaos). If you have thoughts, let me know!*
+*I'm planning to update this based on feedback from the community.
+If you have thoughts, let me know!*
